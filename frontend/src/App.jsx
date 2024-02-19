@@ -1,5 +1,7 @@
 function App() {
-  return <>Hello Form home page</>;
+  return (
+    <div className="text-red-500 bg-blue-400 p-2">Hello Form home page</div>
+  );
 }
 
 export default App;
