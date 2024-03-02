@@ -1,3 +1,6 @@
+import { FaGithub, FaUnlockAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 const SignUpPage = () => {
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
@@ -9,10 +12,28 @@ const SignUpPage = () => {
           </h1>
           <button
             type="button"
-            className="text-white bg-[#24292F] hover:bg=[#24292f]/90"
+            className="text-white bg-[#24292F] hover:bg-[#000000]/90 focus:ring-4
+						focus:ring-[#24292F]/50 font-medium rounded-lg flex gap-2 p-2 items-center w-full 
+						text-center justify-center"
           >
-            Sign Up With GitHub
+            <FaGithub className="w-5 h-5" />
+            Sign up with Github
           </button>
+          <p className="text-gray-300">
+            By signing up, you will unlock all the features of the app.
+            <span>
+              <FaUnlockAlt className="w-4 h-4 inline mx-2" />
+            </span>
+          </p>
+          <p className="text-sm font-light text-gray-500">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="font-medium text-primary-600 hover:underline text-blue-600"
+            >
+              Login
+            </Link>
+          </p>
         </div>
       </div>
     </div>
