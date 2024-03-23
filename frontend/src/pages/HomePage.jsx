@@ -17,14 +17,14 @@ const HomePage = () => {
     setloading(true);
     try {
       // 60 request per hour
-      const userRes = await fetch(`https://api.github.com/users/${username}`);
-      const userProf = await userRes.json();
+      const res = await fetch(
+        `http://localhost:5000/api/users/profile/${username}`
+      );
+      const { userProf, repos } = await res.json();
+      repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending , recent first
       setUserProfile(userProf);
-
-      const repoRes = await fetch(userProf.repos_url);
-      const repos = await repoRes.json();
       setRepos(repos);
-      return { userProf, repos };
+      return { repos, userProf };
     } catch (err) {
       toast.error(err);
     } finally {
