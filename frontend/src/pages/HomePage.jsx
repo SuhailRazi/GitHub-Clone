@@ -17,9 +17,7 @@ const HomePage = () => {
     setloading(true);
     try {
       // 60 request per hour
-      const res = await fetch(
-        `http://localhost:5000/api/users/profile/${username}`
-      );
+      const res = await fetch(`/api/users/profile/${username}`);
       const { userProf, repos } = await res.json();
       repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending , recent first
       setUserProfile(userProf);
