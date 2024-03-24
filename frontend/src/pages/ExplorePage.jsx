@@ -12,9 +12,7 @@ const ExplorePage = () => {
     setLoading(true);
     setRepos([]);
     try {
-      const res = await fetch(
-        `http://localhost:5000/api/explorer/popularRepos/${language}`
-      );
+      const res = await fetch(`/api/explorer/popularRepos/${language}`);
 
       const { repos } = await res.json();
       setRepos(repos);
