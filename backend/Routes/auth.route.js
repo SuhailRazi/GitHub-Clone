@@ -31,7 +31,7 @@ router.get("/check", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
-    res.json({ message: "logged out" });
+    res.json({ message: "User Logged out" });
   });
 });
 
